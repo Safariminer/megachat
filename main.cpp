@@ -1,12 +1,10 @@
-#include <stdio.h>
-#include <iostream>
-#include "megachat.h"
+#include <stdio.h> // standard C lib
+#include <iostream> // standard C++ lib
+#include "megachat.h" // MegaChat header
 
 bool Connected = true;
 
-std::string address;
-
-int main(){
+int main(int argc, char *argv[]){
 
 
 std::string str; // This is the ONLY VARIABLE responsible for user input.
@@ -17,7 +15,7 @@ std::string str; // This is the ONLY VARIABLE responsible for user input.
 std::cout<<"What's your username? : ";
 std::cin >> str;
 MegaChat::UI::MegaContext context;
-MegaChat::Radio::Client clitmp;
+MegaChat::Radio::Client clitmp; // temporary client class
 clitmp.username = str;
 clitmp.origin = MegaChat::Radio::Origin::LOCAL;
 
@@ -53,7 +51,9 @@ while(Connected){
        context.user.username = str;
 
      }
-     if(str.rfind("!flags", 0)==0) {
+     if(str.rfind("!dl ", 0) == 0){
+       str.erase(0,4);
+       MegaChat::Radio::Download(str);
      }
      if(str == "!quit" || str == "!exit" || str == "!logout"){
        Connected = false;
