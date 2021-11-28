@@ -1,0 +1,3 @@
+MegaChat Test Server for Test Purposes
+This server is a test one made for basic communication purposes between very few
+people. It is DB-less and open-source.
