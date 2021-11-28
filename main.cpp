@@ -53,7 +53,11 @@ while(Connected){
      }
      if(str.rfind("!dl ", 0) == 0){
        str.erase(0,4);
-       MegaChat::Radio::Download(str);
+       MegaChat::Radio::Download(str, context.address);
+     }
+     if(str.rfind("!connect ", 0) == 0){
+       str.erase(0,9);
+       context.address = str;
      }
      if(str == "!quit" || str == "!exit" || str == "!logout"){
        Connected = false;

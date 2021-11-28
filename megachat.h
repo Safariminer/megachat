@@ -62,6 +62,11 @@ void GetLog(std::string address){
   std::cout<<Sys::Exec(temp.c_str());
 }
 
+void Download(std::string item, std::string address){
+  std::string tempstring = "curl -LO " + address + item;
+  system(tempstring.c_str());
+}
+
   }
   namespace UI{
     class Log{
